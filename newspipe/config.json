@@ -1,0 +1,13 @@
+{
+    "name": "newspipe",
+    "version": "0.0.0.1",
+    "slug": "newspipe",
+    "description": "A web news aggregator",
+    "url": "https://github.com/berichta/hassio-addons",
+    "arch": ["armhf", "armv7", "amd64", "aarch64", "i386"],
+    "startup": "once",
+    "boot": "manual",
+    "environment": {
+        "LOG_FORMAT": "{LEVEL}: {MESSAGE}"
+    }
+}
