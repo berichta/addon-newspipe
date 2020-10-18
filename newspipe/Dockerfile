@@ -13,7 +13,8 @@ ARG BUILD_VERSION
 RUN set -eux; \
 	apk add --no-cache git \
 	npm \
-	gcc
+	gcc \
+	musl-dev
 
 RUN set -eux; \
 	pip3 install pybabel \
