@@ -11,14 +11,14 @@ ARG BUILD_VERSION
 
 # Install basics
 RUN apk add --no-cache git \
-            npm \
-            poetry \
-            python
+            npm
 
 # Install requirements for add-on
 RUN apk add --no-cache --allow-untrusted \
-            --repository http://nl.alpinelinux.org/alpine/edge/community \
-            youtube-dl
+            --repository http://nl.alpinelinux.org/alpine/edge/testing \
+            poetry
+
+RUN git clone https://git.sr.ht/~cedric/newspipe
 
 # Copy root filesystem
 #COPY rootfs /
