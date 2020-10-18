@@ -11,7 +11,8 @@ ARG BUILD_VERSION
 
 # Install basics
 RUN apk add --no-cache git \
-            npm
+            npm \
+            gcc
 
 RUN pip3 install pybabel
 
