@@ -12,23 +12,22 @@ ARG BUILD_VERSION
 # Install basics
 RUN set -eux; \
 	apk add --no-cache git \
-	npm \
-	python3
+	npm
 
-# Install requirements for add-on
+# Install poetry
 RUN set -eux; \
 	curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -; \
-	source $HOME/.poetry/env
+	source $HOME/.poetry/env; \
+	poetry config virtualenvs.create false
 
+# Install newspipe
 RUN set -eux; \
 	git clone https://git.sr.ht/~cedric/newspipe; \
 	cd newspipe/; \
 	npm install; \
 	poetry install; \
 	poetry shell; \
-	pybabel compile -d newspipe/translations
-
-RUN set -eux; \
+	pybabel compile -d newspipe/translations; \
 	export NEWSPIPE_CONFIG=sqlite.py; \
 	export FLASK_APP=runserver.py; \
 	export FLASK_ENV=development; \
