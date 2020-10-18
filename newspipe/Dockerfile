@@ -16,7 +16,12 @@ RUN apk add --no-cache git \
 # Install requirements for add-on
 RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
 
-RUN git clone https://git.sr.ht/~cedric/newspipe
+RUN git clone https://git.sr.ht/~cedric/newspipe; \
+    cd newspipe/; \
+    npm install; \
+    poetry install; \
+    poetry shell; \
+    pylabel compile -d newspipe/translations
 
 # Copy root filesystem
 #COPY rootfs /
