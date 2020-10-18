@@ -13,6 +13,8 @@ ARG BUILD_VERSION
 RUN apk add --no-cache git \
             npm
 
+RUN pip install pybabel
+
 # Install requirements for add-on
 RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
 
