@@ -15,11 +15,11 @@ RUN set -eux; \
 	npm \
 	gcc \
 	musl-dev \
-	libxslt
+	libxslt \
+	libxml2
 
 RUN set -eux; \
-	pip3 install pybabel \
-		multidict
+	pip3 install pybabel
 
 # Install requirements for add-on
 RUN set -eux; \
