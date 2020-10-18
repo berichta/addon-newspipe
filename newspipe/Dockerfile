@@ -14,7 +14,8 @@ RUN set -eux; \
 	apk add --no-cache git \
 	npm \
 	gcc \
-	musl-dev
+	musl-dev \
+	libxml2-dev
 
 # Install poetry
 RUN set -eux; \
