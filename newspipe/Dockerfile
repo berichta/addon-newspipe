@@ -22,7 +22,7 @@ RUN git clone https://git.sr.ht/~cedric/newspipe; \
     source $HOME/.poetry/env; \
     poetry install; \
     poetry shell; \
-    pylabel compile -d newspipe/translations
+    pybabel compile -d newspipe/translations
 
 # Copy root filesystem
 #COPY rootfs /
