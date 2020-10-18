@@ -14,9 +14,7 @@ RUN apk add --no-cache git \
             npm
 
 # Install requirements for add-on
-RUN apk add --no-cache --allow-untrusted \
-            --repository http://nl.alpinelinux.org/alpine/edge/testing \
-            poetry
+RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
 
 RUN git clone https://git.sr.ht/~cedric/newspipe
 
