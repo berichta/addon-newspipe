@@ -15,7 +15,7 @@ RUN set -eux; \
 	npm \
 	gcc \
 	musl-dev \
-	libxml2-dev
+	cython
 
 # Install poetry
 RUN set -eux; \
