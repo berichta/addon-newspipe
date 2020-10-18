@@ -10,27 +10,32 @@ ARG BUILD_REF
 ARG BUILD_VERSION
 
 # Install basics
-RUN apk add --no-cache git \
-            npm \
-            gcc
+RUN set -eux; \
+	apk add --no-cache git \
+	npm \
+	gcc
 
-RUN pip3 install pybabel
+RUN set -eux; \
+	pip3 install pybabel
 
 # Install requirements for add-on
-RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+RUN set -eux; \
+	curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
 
-RUN git clone https://git.sr.ht/~cedric/newspipe; \
-    cd newspipe/; \
-    npm install; \
-    source $HOME/.poetry/env; \
-    poetry install; \
-    poetry shell; \
-    pybabel compile -d newspipe/translations
+RUN set -eux; \
+	git clone https://git.sr.ht/~cedric/newspipe; \
+	cd newspipe/; \
+	npm install; \
+	source $HOME/.poetry/env; \
+	poetry install; \
+	poetry shell; \
+	pybabel compile -d newspipe/translations
 
-RUN export NEWSPIPE_CONFIG=sqlite.py; \
-    export FLASK_APP=runserver.py; \
-    export FLASK_ENV=development; \
-    flask db_create
+RUN set -eux; \
+	export NEWSPIPE_CONFIG=sqlite.py; \
+	export FLASK_APP=runserver.py; \
+	export FLASK_ENV=development; \
+	flask db_create
 
 # Copy root filesystem
 #COPY rootfs /
