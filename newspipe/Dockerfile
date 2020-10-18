@@ -24,7 +24,7 @@ RUN set -eux; \
 	cd newspipe/; \
 	npm install; \
 	source $HOME/.poetry/env; \
-	poetry config virtualenvs.create false
+	poetry config virtualenvs.create false; \
 	poetry install; \
 	poetry shell; \
 	pybabel compile -d newspipe/translations; \
