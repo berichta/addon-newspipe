@@ -13,22 +13,17 @@ ARG BUILD_VERSION
 RUN set -eux; \
 	apk add --no-cache git \
 	npm \
-	gcc \
-	musl-dev
-
-RUN set -eux; \
-	pip3 install pybabel \
-		libxml2-python3
+	python3
 
 # Install requirements for add-on
 RUN set -eux; \
-	curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+	curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -; \
+	source $HOME/.poetry/env
 
 RUN set -eux; \
 	git clone https://git.sr.ht/~cedric/newspipe; \
 	cd newspipe/; \
 	npm install; \
-	source $HOME/.poetry/env; \
 	poetry install; \
 	poetry shell; \
 	pybabel compile -d newspipe/translations
