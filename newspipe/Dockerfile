@@ -16,7 +16,8 @@ RUN set -eux; \
 	gcc
 
 RUN set -eux; \
-	pip3 install pybabel
+	pip3 install pybabel \
+		multidict
 
 # Install requirements for add-on
 RUN set -eux; \
@@ -26,7 +27,9 @@ RUN set -eux; \
 	git clone https://git.sr.ht/~cedric/newspipe; \
 	cd newspipe/; \
 	npm install; \
-	source $HOME/.poetry/env; \
+	source $HOME/.poetry/env
+
+RUN set -eux; \
 	poetry install; \
 	poetry shell; \
 	pybabel compile -d newspipe/translations
