@@ -12,7 +12,8 @@ ARG BUILD_VERSION
 # Install basics
 RUN set -eux; \
 	apk add --no-cache git \
-	npm
+	npm \
+	gcc
 
 # Install poetry
 RUN set -eux; \
