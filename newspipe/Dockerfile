@@ -19,6 +19,7 @@ RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-
 RUN git clone https://git.sr.ht/~cedric/newspipe; \
     cd newspipe/; \
     npm install; \
+    source $HOME/.poetry/env; \
     poetry install; \
     poetry shell; \
     pylabel compile -d newspipe/translations
