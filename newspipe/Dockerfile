@@ -28,9 +28,7 @@ RUN set -eux; \
 	git clone https://git.sr.ht/~cedric/newspipe; \
 	cd newspipe/; \
 	npm install; \
-	source $HOME/.poetry/env
-
-RUN set -eux; \
+	source $HOME/.poetry/env; \
 	poetry install; \
 	poetry shell; \
 	pybabel compile -d newspipe/translations
