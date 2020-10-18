@@ -16,15 +16,15 @@ RUN set -eux; \
 
 # Install poetry
 RUN set -eux; \
-	curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -; \
-	source $HOME/.poetry/env; \
-	poetry config virtualenvs.create false
+	curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
 
 # Install newspipe
 RUN set -eux; \
 	git clone https://git.sr.ht/~cedric/newspipe; \
 	cd newspipe/; \
 	npm install; \
+	source $HOME/.poetry/env; \
+	poetry config virtualenvs.create false
 	poetry install; \
 	poetry shell; \
 	pybabel compile -d newspipe/translations; \
