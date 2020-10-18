@@ -13,7 +13,7 @@ ARG BUILD_VERSION
 RUN apk add --no-cache git \
             npm
 
-RUN pip install pybabel
+RUN pip3 install pybabel
 
 # Install requirements for add-on
 RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
@@ -25,6 +25,11 @@ RUN git clone https://git.sr.ht/~cedric/newspipe; \
     poetry install; \
     poetry shell; \
     pybabel compile -d newspipe/translations
+
+RUN export NEWSPIPE_CONFIG=sqlite.py; \
+    export FLASK_APP=runserver.py; \
+    export FLASK_ENV=development; \
+    flask db_create
 
 # Copy root filesystem
 #COPY rootfs /
