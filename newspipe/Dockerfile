@@ -14,7 +14,8 @@ RUN set -eux; \
 	apk add --no-cache git \
 	npm \
 	gcc \
-	musl-dev
+	musl-dev \
+	libxml2
 
 RUN set -eux; \
 	pip3 install pybabel \
