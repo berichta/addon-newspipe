@@ -14,8 +14,10 @@ RUN set -eux; \
 	apk add --no-cache git \
 	npm \
 	gcc \
-	musl-dev \
-	cython
+	musl-dev
+
+RUN set -eux; \
+	pip install cython
 
 # Install poetry
 RUN set -eux; \
