@@ -14,12 +14,11 @@ RUN set -eux; \
 	apk add --no-cache git \
 	npm \
 	gcc \
-	musl-dev \
-	libxslt \
-	libxml2
+	musl-dev
 
 RUN set -eux; \
-	pip3 install pybabel
+	pip3 install pybabel \
+		libxml2-python3
 
 # Install requirements for add-on
 RUN set -eux; \
