@@ -14,11 +14,10 @@ RUN set -eux; \
 	apk add --no-cache git \
 	npm \
 	gcc \
-	musl-dev \
-	python3-dev
+	musl-dev
 
 RUN set -eux; \
-	pip install cython
+	pip install lxml
 
 # Install poetry
 RUN set -eux; \
