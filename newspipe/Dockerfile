@@ -14,7 +14,8 @@ RUN set -eux; \
 	apk add --no-cache git \
 	npm \
 	gcc \
-	musl-dev
+	musl-dev \
+	python3-dev
 
 RUN set -eux; \
 	pip install cython
