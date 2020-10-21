@@ -15,11 +15,11 @@ RUN set -eux; \
 	npm \
 	musl-dev \
 	g++ \
+	postgresql-dev \
 	python3-dev \
 	libxml2 \
-	libpq \
-	libxml2-dev && \
-	apk add libxslt-dev
+	libxml2-dev \
+	&& apk add libxslt-dev
 	
 RUN set -eux; \
 	pip install aiohttp \
