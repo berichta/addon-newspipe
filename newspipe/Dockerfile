@@ -13,25 +13,73 @@ ARG BUILD_VERSION
 RUN set -eux; \
 	apk add --no-cache git \
 	npm \
-	gcc \
 	musl-dev
-
+	
 RUN set -eux; \
-	pip install lxml
+	pip install aiohttp \
+	alembic \
+	aniso8601 \
+	async-timeout \
+	attrs \
+	babel \
+	beautifulsoup4 \
+	blinker \
+	certifi \
+	chardet \
+	click \
+	feedparser \
+	flake8 \
+	flask \
+	flask-babel \
+	flask-login \
+	flask-migrate \
+	flask-paginate \
+	flask-principal \
+	flask-restful \
+	flask-sqlalchemy \
+	flask-talisman \
+	flask-wtf \
+	idna \
+	itsdangerous \
+	jinja2 \
+	lxml \
+	mako \
+	markupsafe \
+	mccabe \
+	multidict \
+	opml \
+	psycopg2-binary \
+	pycodestyle \
+	pydot \
+	pyflakes \
+	pyparsing \
+	python-dateutil \
+	python-editor \
+	pytz \
+	requests \
+	requests-futures \
+	six \
+	soupsieve \
+	sqlalchemy \
+	sqlalchemy-schemadisplay \
+	urllib3 \
+	werkzeug \
+	wtforms \
+	yarl
 
 # Install poetry
-RUN set -eux; \
-	curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+# RUN set -eux; \
+# 	curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
 
 # Install newspipe
 RUN set -eux; \
 	git clone https://git.sr.ht/~cedric/newspipe; \
 	cd newspipe/; \
 	npm install; \
-	source $HOME/.poetry/env; \
-	poetry config virtualenvs.create false; \
-	poetry install; \
-	poetry shell; \
+# 	source $HOME/.poetry/env; \
+# 	poetry config virtualenvs.create false; \
+# 	poetry install; \
+# 	poetry shell; \
 	pybabel compile -d newspipe/translations; \
 	export NEWSPIPE_CONFIG=sqlite.py; \
 	export FLASK_APP=runserver.py; \
