@@ -15,7 +15,7 @@ RUN set -eux; \
 	npm \
 	musl-dev \
 	g++ \
-	python-dev \
+	python3-dev \
 	libxml2 \
 	libxml2-dev && \
 	apk add libxslt-dev
