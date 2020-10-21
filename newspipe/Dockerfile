@@ -17,6 +17,7 @@ RUN set -eux; \
 	g++ \
 	python3-dev \
 	libxml2 \
+	libpq \
 	libxml2-dev && \
 	apk add libxslt-dev
 	
