@@ -11,9 +11,14 @@ ARG BUILD_VERSION
 
 # Install basics
 RUN set -eux; \
-	apk add --no-cache git \
+	apk add --update --no-cache git \
 	npm \
-	musl-dev
+	musl-dev \
+	g++ \
+	python-dev \
+	libxml2 \
+	libxml2-dev && \
+	apk add libxslt-dev
 	
 RUN set -eux; \
 	pip install aiohttp \
