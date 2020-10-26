@@ -25,7 +25,7 @@ steps:
     -v $(pwd)/newspipe:/data \
     homeassistant/amd64-builder --armv7 -t /data \
     --no-cache \
-    -d berichta -i newspipe-{arch} --test
+    -d berichta -i newspipe-{arch}
   condition: succeeded()
   displayName: Build and push newspipe with tag :latest
 
