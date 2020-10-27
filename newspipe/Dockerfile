@@ -82,15 +82,14 @@ RUN set -eux; \
 	git clone https://git.sr.ht/~cedric/newspipe; \
 	cd newspipe/; \
 	npm install; \
-# 	source $HOME/.poetry/env; \
-# 	poetry config virtualenvs.create false; \
 # 	poetry install; \
 # 	poetry shell; \
 	pybabel compile -d newspipe/translations; \
 	export NEWSPIPE_CONFIG=sqlite.py; \
 	export FLASK_APP=runserver.py; \
-	export FLASK_ENV=development; \
-	flask db_create
+# 	export FLASK_ENV=development; \
+	flask db_create; \
+	flask create_admin
 
 # Copy root filesystem
 #COPY rootfs /
