@@ -33,6 +33,9 @@ jobs:
         with:
           args: |
             --test \
+            --no-latest \
             --all \
             --target /data/newspipe \
-            --docker-hub berichta
+            --docker-hub berichta \
+            --image newspipe-{arch} \
+            --version test
