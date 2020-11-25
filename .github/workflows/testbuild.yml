@@ -34,4 +34,4 @@ jobs:
           args: |
             --test \
             --all \
-            --target /newspipe
+            --target /data/newspipe
