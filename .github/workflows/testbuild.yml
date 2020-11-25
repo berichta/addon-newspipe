@@ -34,4 +34,5 @@ jobs:
           args: |
             --test \
             --all \
-            --target /data/newspipe
+            --target /data/newspipe \
+            --docker-hub berichta
